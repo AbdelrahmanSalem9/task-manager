@@ -1,5 +1,4 @@
 const Ajv = require('ajv');
-const { validate } = require('../model/UserModel');
 
 const ajv = new Ajv();
 
@@ -8,8 +7,9 @@ const schema = {
     properties: {
         fullName: { type: "string", minLength: 3, pattern: "^([A-Z][a-z]*)(\\s[A-Z][a-z]*)*$" },
         email: { type: "string", pattern: "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" },
+        password: { type: "string", pattern: "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", minLength: 8, maxLength: 28 },
     },
-    required: ["fullName", "email"]
+    required: ["fullName", "email", "password"]
 }
 
 const validation = ajv.compile(schema);
