@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.genAuthToken = function () {
-    const token = jwt.sign({ userid: this._id, isAdmin: this.isAdmin }, process.env.SECRET_KEY);
+    return jwt.sign({ userid: this._id, isAdmin: this.isAdmin }, process.env.SECRET_KEY);
 }
 const User = mongoose.model("User", userSchema);
 module.exports = User
