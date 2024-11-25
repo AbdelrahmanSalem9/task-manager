@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AbdelrahmanSalem9/task-manager#readme",
   "dependencies": {
     "ajv": "^8.17.1",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "mongoose": "^8.8.2",

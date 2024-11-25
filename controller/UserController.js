@@ -1,8 +1,13 @@
 const User = require('../model/UserModel.js')
-
+const bcrypt = require('bcrypt');
 
 const createUser = async (req, res) => {
-    const newUser = new User(req.body);
+    let hashedPW = await bcrypt.hash(req.body.password, 10);
+    const newUser = await new User({
+        fullName: req.body.fullName,
+        email: req.body.email,
+        password: hashedPW
+    });
     const result = await newUser.save();
     if (!result) return res.sendStatus(400);
     res.json(result);
