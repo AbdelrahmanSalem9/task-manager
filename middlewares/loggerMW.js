@@ -2,12 +2,14 @@ const logger = require('../util/Logging.js');
 
 const loggerMiddleware = (req, res, next) => {
     const { method, url } = req; // Extract HTTP method and URL
-    const start = Date.now();
+    const start = Date.now(); // Capture the start time
 
-    res.on('finish', () => {
-        const duration = Date.now() - start;
-        const { statusCode } = res;
+    // Ensure that the 'finish' event is only registered once per request
+    res.once('finish', () => {
+        const duration = Date.now() - start; // Calculate duration
+        const { statusCode } = res; // Extract status code
 
+        // Log the HTTP request details
         logger.info({
             message: 'HTTP Request',
             method,
