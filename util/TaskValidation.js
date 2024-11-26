@@ -21,20 +21,23 @@ const taskValidationSchema = {
         },
         user: { type: "string" }
     },
-    required: ["title", "user"], // Required fields
-    additionalProperties: false,
+    required: ["title", "user"],  // Required fields
+    additionalProperties: false,  // Prevent extra properties
 };
 
 // Compile the schema
 const validateTask = ajv.compile(taskValidationSchema);
 
-const taskValidator = (req, res, nxt) => {
+// Task validation middleware
+const taskValidator = (req, res, next) => {
     const valid = validateTask(req.body);
-    if (!valid) return res.status(400).send({
-        error: "Inavlid Task Info",
-        details: validateTask.errors,
-    });
-    nxt();
-}
+    if (!valid) {
+        return res.status(400).json({
+            error: "Invalid Task Information",
+            details: validateTask.errors,  // Provide error details
+        });
+    }
+    next();  // Continue to the next middleware
+};
 
 module.exports = taskValidator;
