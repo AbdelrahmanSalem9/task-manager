@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TaskSchema = new mongoose.Schema({
-    title: { type: String, required: true },
+    title: { type: String, required: true, unique: true },
     description: { type: String },
     status: {
         type: String,
@@ -21,5 +21,5 @@ const TaskSchema = new mongoose.Schema({
         required: true
     },
 });
-
+TaskSchema.index({ user: 1 });
 module.exports = mongoose.model("Task", TaskSchema);
