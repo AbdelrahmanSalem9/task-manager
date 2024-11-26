@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const validateTask = require('../util/TaskValidation.js');
 const taskController = require('../controller/TaskController.js');
-const filteringMiddleware = require('../util/TaskFilterMW.js');
-const sortingMiddleware = require('../util/TaskSortingMW.js');
+const filteringMiddleware = require('../middlewares/TaskFilterMW.js');
+const sortingMiddleware = require('../middlewares/TaskSortingMW.js');
 
 
 // Get Tasks applying filters
