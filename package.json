@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,11 @@
     "mongoose": "^8.8.2",
     "nodemon": "^3.1.7",
     "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "cross-env": "^7.0.3",
+    "mocha": "^10.8.2"
   }
 }

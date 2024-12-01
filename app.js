@@ -1,6 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config();
+const dotenv = require('dotenv');
+
+const envFile = process.env.NODE_ENV === 'test' ? '.env.test' : '.env';
+dotenv.config({ path: envFile });
+
 
 const app = express();
 
@@ -28,7 +32,7 @@ app.use('/tasks', attachUserID, taskRouter);
 // Database connection
 const connectToDatabase = async () => {
     try {
-        await mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(DATABASE_URL);
         console.log("Database connection established...");
     } catch (err) {
         console.error("Error connecting to the database", err);
@@ -46,3 +50,6 @@ const startServer = async () => {
 
 // Run the application
 startServer();
+
+// export the server instance 
+module.exports = app
