@@ -51,7 +51,7 @@ const deleteTask = async (req, res) => {
 
         const result = await Task.findOneAndDelete({ user, title });
         if (!result) {
-            return res.status(400).json({ error: "Unable to delete task" });
+            return res.status(404).json({ error: "Unable to delete task" });
         }
         res.json({ message: "Task deleted successfully" });
     } catch (error) {
@@ -72,7 +72,7 @@ const updateTask = async (req, res) => {
             { new: true } // Return the updated document
         );
         if (!updatedTask) {
-            return res.status(400).json({ error: "Unable to update task" });
+            return res.status(404).json({ error: "Unable to update task" });
         }
         res.json(updatedTask);
     } catch (error) {
