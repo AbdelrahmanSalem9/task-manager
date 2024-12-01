@@ -8,7 +8,6 @@ const logger = winston.createLogger({
         winston.format.json() // Format logs as JSON
     ),
     transports: [
-        new winston.transports.Console(), // Log to console
         new winston.transports.File({ filename: 'logs/app.log' }) // Log to a file
     ]
 });
