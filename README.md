@@ -101,6 +101,7 @@ This project includes comprehensive testing using **Mocha** as the test framewor
     - Sort tasks by priority or other criteria
 
 ### 🛠️ Tools Used
+- Postman: Http client for API testing during development. 
 - Mocha: Test framework for defining and executing tests.
 - Chai: Assertion library for verifying test outcomes.
 - Chai-HTTP: Middleware for testing HTTP API endpoints.
@@ -111,10 +112,14 @@ To run the tests locally, ensure the following prerequisites are met:
 1. Node.js and npm are installed.
 2. A .env.test file is configured with a `SECRET_KEY` for JWT generation with the testing `DATABASE_URL`.
 3. MongoDB is running and accessible.
+4. run the following command: 
 
-```bash
-npm test
-```
+    ```bash
+    npm test
+    ```
+    output: 
+    ![](./media/testing%20report.png)
+
 
 
 
