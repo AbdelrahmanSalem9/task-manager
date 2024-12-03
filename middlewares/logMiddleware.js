@@ -1,4 +1,4 @@
-const logger = require('../util/Logging.js');
+const logger = require('../util/logger.js');
 
 const loggerMiddleware = (req, res, next) => {
     const { method, url } = req; // Extract HTTP method and URL

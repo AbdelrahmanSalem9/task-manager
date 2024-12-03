@@ -5,8 +5,8 @@ const { expect } = chai;
 const chaiHttp = require('chai-http');
 const jwt = require('jsonwebtoken');
 const server = require('../app');
-const User = require('../model/UserModel');
-const Task = require('../model/TaskModel');
+const User = require('../models/User');
+const Task = require('../models/Task');
 
 chai.use(chaiHttp);
 

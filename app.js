@@ -5,17 +5,16 @@ const dotenv = require('dotenv');
 const envFile = process.env.NODE_ENV === 'test' ? '.env.test' : '.env';
 dotenv.config({ path: envFile });
 
-
 const app = express();
 
 // Import routes
-const userRouter = require('./routes/User');
-const loginRouter = require('./routes/auth');
-const taskRouter = require('./routes/Task');
+const userRouter = require('./routes/userRoutes');
+const loginRouter = require('./routes/authRoutes');
+const taskRouter = require('./routes/taskRoutes');
 
 // Middleware
-const attachUserID = require('./util/attachUserID');
-const loggerMiddleware = require('./middlewares/loggerMW');
+const attachUserID = require('./util/userIdAttacher');
+const loggerMiddleware = require('./middlewares/logMiddleware');
 
 // Get environment variables
 const { DATABASE_URL, PORT } = process.env;

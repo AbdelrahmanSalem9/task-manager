@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const User = require('../model/UserModel.js');
-const authValidator = require('../util/AuthValidator.js');
+const User = require('../models/User.js');
+const authValidator = require('../util/loginValidator.js');
 const bcrypt = require('bcrypt');
 
 router.post('/', authValidator, async (req, res) => {
