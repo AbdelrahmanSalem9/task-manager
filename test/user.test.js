@@ -101,4 +101,7 @@ describe('User API Tests', () => {
             expect(res.header).to.have.property('x-auth-token');
         });
     });
+    after(async () => {
+        await User.deleteMany({});
+    });
 });
