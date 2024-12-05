@@ -2,3 +2,9 @@ node_modules_linux/
 node_modules/
 .gitignore
 README.md
+.git
+logs/
+test/
+.env.test
+.mocharc.json
+media/
