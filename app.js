@@ -42,7 +42,7 @@ const connectToDatabase = async () => {
 // Start server and connect to DB
 const startServer = async () => {
     await connectToDatabase();
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0',() => {
         console.log(`Server running on port ${PORT}`);
     });
 };
