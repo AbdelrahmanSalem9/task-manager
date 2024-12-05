@@ -1,23 +1,23 @@
-# Task Management RESTful API
+# 📝 Task Management RESTful API
 
 A Task Management API built with Node.js, Express, MongoDB, and JWT for authentication and authorization. This application allows users to create, update, delete, and manage tasks while offering different levels of access for admins and regular users.
 
-## Features
+## 🚀 Features
 
-- **User Authentication & Authorization**: Users can register, log in, and authenticate using JWT. Admin users have extended access to manage all users and tasks.
-- **Task Management**: Users can create, view, update, and delete their tasks.
-- **Filter & Sort Tasks**: Users can filter and sort tasks by various criteria (`status`, `priority`, `dueDate`)
-- **Admin Access**: Admin users can view, update, and delete any user or task in the system.
+- 🔒 **User Authentication & Authorization**: Users can register, log in, and authenticate using JWT. Admin users have extended access to manage all users and tasks.
+- 📋 **Task Management**: Users can create, view, update, and delete their tasks.
+- 🔍 **Filter & Sort Tasks**: Users can filter and sort tasks by various criteria (`status`, `priority`, `dueDate`)
+- 👑 **Admin Access**: Admin users can view, update, and delete any user or task in the system.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Backend**: Node.js with Express
 - **Database**: MongoDB (via Mongoose)
-- **Hosting**: Railway throuh [link](https://task-manager-production-18c4.up.railway.app/check)
+- **Hosting**: Railway ([Live App](https://task-manager-production-18c4.up.railway.app/check))
 - **Authentication**: JWT (JSON Web Tokens)
 - **Validation**: AJV (JSON Schema validation)
 - **Environment Variables**: dotenv
-- **Logging**: Winston package with custom middleware for request logging
+- **Logging**: Winston with custom middleware
 
 ## Database Hosting
 This project uses [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) for database hosting. MongoDB Atlas is a cloud-based, fully managed database as a service (DBaaS) that offers a free tier, making it ideal for development and small-scale projects.
@@ -25,7 +25,7 @@ This project uses [MongoDB Atlas](https://www.mongodb.com/products/platform/atla
 Running Cluster: 
 ![](./media/Atlas%20c0.png)
 
-## Installation
+## 🛠️ Installation
 
 1. Clone the repository:
 
@@ -44,28 +44,28 @@ Running Cluster:
     PORT=5000
     SECRET_KEY=your-secret-key-for-jwt
     ```
-    - DATABASE_URL: MongoDB connection string (can be a local MongoDB or MongoDB Atlas URL).
-    - PORT: Port for the server to run on (default is 5000).
-    - SECRET_KEY: A secret key used to sign JWT tokens.
+    - `DATABASE_URL`: MongoDB connection string (can be a local MongoDB or MongoDB Atlas URL).
+    - `PORT`: Port for the server to run on (default is 5000).
+    - `SECRET_KEY`: A secret key used to sign JWT tokens.
 4. Run the application: 
     ```bash
     npm start
     ```
     The app will be available at http://localhost:5000.
 
-## API Endpoints
+## 📖 API Endpoints
 
-### **User Routes**
+### 👤 **User Routes**
 - `POST /user`: Create a new user (Registration).
 - `GET /user`: Get all users (Admin access only).
 - `GET /user/:id`: Get a specific user by ID.
 - `PUT /user/:id`: Update user details (Admin access only).
 - `DELETE /user/:id`: Delete a user (Admin access only).
 
-### **Login Routes**
+### 🔐 **Login Routes**
 - `POST /login`: Log in a user and get a JWT token.
 
-### **Task Routes**
+### 📋 **Task Routes**
 - `POST /tasks`: Create a new task.
 - `GET /tasks`: Get a list of tasks with optional filtering and sorting.
 - `GET /tasks/:title`: Get a specific task by its title.
@@ -83,10 +83,10 @@ Running Cluster:
 
 We use **AJV** for input validation throughout the application. Every route that receives user input, such as creating a user or creating a task, will validate the data against a JSON predefined schema.
 
-## Testing
+## 🧪 Testing
 This project includes comprehensive testing using **Mocha** as the test framework and **Chai** as the assertion library. The tests ensure the correctness of the API endpoints, including CRUD operations, user authentication,admin permissions and task management.
 
-### 📋 Features Tested
+### 🔍 Features Tested
 1. User API:
     - User creation with validation (`POST /user`)
     - User retrieval by ID (`GET /user/:id`)
@@ -130,7 +130,7 @@ To run the tests locally, ensure the following prerequisites are met:
     ![](./media/testing%20report.png)
 
 
-## Dockerizing
+## 🐳 Dockerizing
 This project has been dockerized to streamline deployment and make it platform-independent. By using Docker, you can quickly build and run the application in a containerized environment.
 
 dockerhub  image: 
@@ -157,9 +157,10 @@ Online hosting Deployment is done using [Railway](https://railway.app/), showcas
 
 ### Why Railway?
 
-1. It is easy to use, with a user-friendly interface for managing deployments.
-2. It offers free-tier hosting, making it an excellent choice for small projects and prototypes.
-3. It seamlessly integrates with Docker Hub, enabling the use of pre-built Docker images.
+- 🚀 **Ease of Use**: Intuitive platform for deployment management.
+- 💰 **Free Tier**: Perfect for small projects and prototypes.
+- 🐳 **Docker Integration**: Supports deployment using custom Docker images.
+
 
 ### Custom Docker Image:
 The application is deployed using my custom [Docker image](https://hub.docker.com/layers/salem9/task-manager/1.1.0/images/sha256-1fa8bedfe0e6e64899fe6653b7574a9bbd9d885151466e44c49b3bfd01e9a42e?context=explore), hosted on Docker Hub
@@ -169,6 +170,9 @@ The application is deployed using my custom [Docker image](https://hub.docker.co
 The application leverages MongoDB Atlas for NoSQL database hosting, ensuring robust and scalable data storage.
 
 This approach ensures consistent application behavior across various environments—local, containerized, and online-hosted—by maintaining reliable API interactions between the MongoDB client and browser-based clients. It also demonstrates proficiency in containerization for streamlined deployment and scalability.
+
+## 🌟 Future Development
+Develop a **React frontend** to transform the project into a full-stack MERN application.
 
 
 
