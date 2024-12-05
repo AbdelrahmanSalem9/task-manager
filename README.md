@@ -13,11 +13,17 @@ A Task Management API built with Node.js, Express, MongoDB, and JWT for authenti
 
 - **Backend**: Node.js with Express
 - **Database**: MongoDB (via Mongoose)
+- **Hosting**: Railway throuh [link](https://task-manager-production-18c4.up.railway.app/check)
 - **Authentication**: JWT (JSON Web Tokens)
 - **Validation**: AJV (JSON Schema validation)
 - **Environment Variables**: dotenv
 - **Logging**: Winston package with custom middleware for request logging
 
+## Database Hosting
+This project uses [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) for database hosting. MongoDB Atlas is a cloud-based, fully managed database as a service (DBaaS) that offers a free tier, making it ideal for development and small-scale projects.
+
+Running Cluster: 
+![](./media/Atlas%20c0.png)
 
 ## Installation
 
@@ -100,6 +106,9 @@ This project includes comprehensive testing using **Mocha** as the test framewor
     - Filter tasks by `status`, `priority`, `dueDate`, or `createdAt`
     - Sort tasks by priority or other criteria
 
+5. Sever Healthcheck
+    - Hosting platforms can access (`/check`) to test whether the server is up and running or   face issues.
+
 ### 🛠️ Tools Used
 - Postman: Http client for API testing during development. 
 - Mocha: Test framework for defining and executing tests.
@@ -120,6 +129,46 @@ To run the tests locally, ensure the following prerequisites are met:
     output: 
     ![](./media/testing%20report.png)
 
+
+## Dockerizing
+This project has been dockerized to streamline deployment and make it platform-independent. By using Docker, you can quickly build and run the application in a containerized environment.
+
+dockerhub  image: 
+![](./media/dockerhub%20img.png)
+
+### Use the Docker Image
+1. You can pull the Docker image directly from DockerHub by run the following command:
+    ```bash
+    docker pull salem9/taskmanager:1.1.0
+    ```
+2. Run the Docker Container
+    ```bash
+    docker container run -p <YOUR_PREFERED_PORT>:3000 salem9/taskmanger
+    ```
+    replace <YOUR_PREFERED_PORT> with port you want to access app from.
+
+3. Access the RESTful APIs: Open browser client and go to `http://localhost:<YOUR_PREFERED_PORT>` (or the port specified in your .env file).
+
+
+## 🌐 Railway Hosting
+Online hosting Deployment is done using [Railway](https://railway.app/), showcasing its readiness for production environments.
+
+![](./media/railway.png)
+
+### Why Railway?
+
+1. It is easy to use, with a user-friendly interface for managing deployments.
+2. It offers free-tier hosting, making it an excellent choice for small projects and prototypes.
+3. It seamlessly integrates with Docker Hub, enabling the use of pre-built Docker images.
+
+### Custom Docker Image:
+The application is deployed using my custom [Docker image](https://hub.docker.com/layers/salem9/task-manager/1.1.0/images/sha256-1fa8bedfe0e6e64899fe6653b7574a9bbd9d885151466e44c49b3bfd01e9a42e?context=explore), hosted on Docker Hub
+
+
+### Database Hosting with MongoDB Atlas:
+The application leverages MongoDB Atlas for NoSQL database hosting, ensuring robust and scalable data storage.
+
+This approach ensures consistent application behavior across various environments—local, containerized, and online-hosted—by maintaining reliable API interactions between the MongoDB client and browser-based clients. It also demonstrates proficiency in containerization for streamlined deployment and scalability.
 
 
 
