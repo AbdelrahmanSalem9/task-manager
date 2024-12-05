@@ -27,6 +27,7 @@ app.use(loggerMiddleware);
 app.use('/user', userRouter);
 app.use('/login', loginRouter);
 app.use('/tasks', attachUserID, taskRouter);
+app.use('/check', (req,res)=>res.send("Ping :)"));
 
 // Database connection
 const connectToDatabase = async () => {
